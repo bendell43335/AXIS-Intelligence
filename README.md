@@ -1,21 +1,26 @@
-# Axis Intelligence
+# AXIS Intelligence — rebuilt
 
-A mobile-friendly ChatGPT-style web app with a black and light-purple interface, chat history for the current browser session, and an API-backed assistant.
+A responsive dark AI chat app with a Node.js/Express backend and OpenAI Responses API integration. The API key stays on the server.
 
 ## Requirements
-- Node.js 18 or newer
-- An OpenAI API key
+- Node.js 18+
+- OpenAI API key with API access/billing enabled
 
 ## Run locally
-1. Extract this folder.
-2. In this folder, copy `.env.example` to `.env`.
-3. Add your API key to `.env`. Keep the key private; do not put it in browser code or share the file.
-4. Install dependencies: `npm install`
-5. Start the app: `npm start`
-6. Open `http://localhost:3000`
+1. Extract this ZIP.
+2. Open a terminal in the extracted folder.
+3. Copy `.env.example` to `.env`.
+4. Open `.env` and replace `your_openai_api_key_here` with your key. Do not share or commit `.env`.
+5. Run `npm install`
+6. Run `npm start`
+7. Open `http://localhost:3000`
 
-## Notes
-- The API key stays on the server and is not sent to the browser.
-- Chat history is currently held in memory in the page; refreshing the page clears it. Persistent accounts, database storage, billing, moderation, and production hosting are not included yet.
-- Change `OPENAI_MODEL` in `.env` to a model available to your API account.
-- This is a working starter app, not a deployed public service. Hosting and API usage may incur costs.
+For development, use `npm run dev`.
+
+## Troubleshooting
+- `AI is not configured yet`: ensure `.env` exists beside `server.js`, contains `OPENAI_API_KEY=...`, then restart the server.
+- Model not found / access error: set `OPENAI_MODEL` in `.env` to a model enabled for your API account.
+- Port in use: set `PORT=3001` in `.env`, then open `http://localhost:3001`.
+- The app requires an active internet connection for API calls.
+
+Chat history is kept in memory in the browser for the current session and is not stored in a database.
